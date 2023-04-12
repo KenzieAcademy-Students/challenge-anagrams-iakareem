@@ -8,6 +8,10 @@ const sortStr = (str) => {
 
 let searchFunctionality = function (words, inputWord) {
   let filtered = words.filter((word) => sortStr(word) === sortStr(inputWord));
+  if (filtered.length < 5) {
+    result.innerHTML = "Word anagram is not up to five"
+    return;
+  }
   result.innerHTML = filtered.join(", ")
   return filtered;
 };
