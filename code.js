@@ -6,20 +6,36 @@ const sortStr = (str) => {
   return str.split("").sort().join("");
 };
 
-let searchFunctionality = function (words, inputWord) {
-  let filtered = words.filter((word) => sortStr(word) === sortStr(inputWord));
-  if (filtered.length < 5) {
-    result.innerHTML = "Word anagram is not up to five"
-    return;
+let isAnagramCheck = function (s, t) {
+  let inputed = s.split("");
+  for (let i = 0; i < t.length; i++) {
+    if (inputed.includes(t[i])) {
+      let idx = inputed.indexOf(t[i]);
+      inputed.splice(idx, 1);
+    } else {
+      return false;
+    }
   }
-  result.innerHTML = filtered.join(", ")
-  return filtered;
+  return true;
 };
 
-searchFunctionality(words, input.value)
+let searchFunctionality = function (words, inputWord) {
+  inputWord = inputWord.split(" ").join("").toLowerCase();
+  let anag = new Set();
+  for (let i = 0; i < words.length; i++) {
+    if (isAnagramCheck(inputWord, words[i])) {
+      anag.add(words[i]);
+    }
+  }
+  result.innerHTML = [...anag].join(" ");
+  // return filtered;
+};
+searchFunctionality(words, input.value);
+
+
 
 const anagramFive = function (words) {
-  let anag = []
+  let anag = [];
   for (let i = 0; i < words.length; i++) {
     if (words[i].length > 4) {
       anag.push([words[i], words[i].split("").sort().join("")]);
@@ -39,8 +55,8 @@ const anagramFive = function (words) {
       res = [...res, ...obj[key]];
     }
   }
-  result.innerHTML = res.join(", ")
-  return res
+  result.innerHTML = res.join(", ");
+  return res;
 };
 
 function findAnagrams() {
@@ -51,4 +67,4 @@ function closeAnagrams() {
   result.innerHTML = "";
 }
 
-anagramFive(words)
+anagramFive(words);
