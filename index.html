@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-        <meta name="description" content="Kenzie" />
-        <meta name="author" content="Kenzie" />
-        <meta name="keywords" content="Kenzie" />
+    <meta name="description" content="Kenzie" />
+    <meta name="author" content="Kenzie" />
+    <meta name="keywords" content="Kenzie" />
 
-        <!-- Title Page -->
-        <title>Anagrams Challenge</title>
+    <!-- Title Page -->
+    <title>Anagrams Challenge</title>
 
-        <!-- CSS -->
-        <link href="style.css" rel="stylesheet" media="all" />
-    </head>
+    <!-- CSS -->
+    <link href="style.css" rel="stylesheet" media="all" />
+  </head>
 
-    <body>
-        <script src="words.js"></script>
-        <script src="code.js"></script>
-    </body>
+  <body>
+    <form>
+      <label>Enter:</label>
+      <input type="text" id="myInput" placeholder="A word here" />
+      <button type="button" onclick="findAnagrams()" ondblclick="closeAnagrams()">Find Anagrams</button>
+    </form>
+    <div id="result"></div>
+    <script src="words.js"></script>
+    <script src="code.js"></script>
+  </body>
 </html>
